@@ -1,0 +1,1423 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Los 5 Errores Fatales que Arruinan tu Beca</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #667eea 100%);
+            min-height: 100vh;
+            color: white;
+            overflow: hidden;
+        }
+
+        .presentation-container {
+            width: 100vw;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+        }
+
+        .slide {
+            display: none;
+            width: 100vw;
+            height: 100vh;
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 50%, #667eea 100%);
+            padding: 60px 80px;
+            box-sizing: border-box;
+            position: relative;
+            overflow-y: auto;
+        }
+
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            animation: slideIn 0.6s ease-out;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+
+        .slide-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        h1 {
+            font-size: 4.5em;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(45deg, #FFD700, #FFA500, #FF6B35);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-size: 3.5em;
+            margin-bottom: 30px;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            text-align: center;
+        }
+
+        h3 {
+            font-size: 2.2em;
+            margin: 25px 0 20px 0;
+            color: #FFA500;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        h4 {
+            font-size: 1.8em;
+            margin: 20px 0 15px 0;
+            color: #87CEEB;
+        }
+
+        p, li {
+            font-size: 1.6em;
+            line-height: 1.7;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+        }
+
+        .big-text {
+            font-size: 2.5em;
+            font-weight: bold;
+            text-align: center;
+            margin: 40px 0;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .error-number {
+            display: inline-block;
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            color: white;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 80px;
+            font-size: 2.5em;
+            font-weight: bold;
+            margin-right: 30px;
+            box-shadow: 0 15px 30px rgba(255, 65, 108, 0.4);
+            vertical-align: middle;
+        }
+
+        .case-study {
+            background: rgba(255, 255, 255, 0.15);
+            border-left: 8px solid #FFD700;
+            padding: 30px;
+            margin: 30px 0;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .solution-box {
+            background: rgba(76, 175, 80, 0.25);
+            border: 3px solid #4CAF50;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(76, 175, 80, 0.2);
+        }
+
+        .urgent-box {
+            background: rgba(244, 67, 54, 0.25);
+            border: 3px solid #f44336;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            animation: pulse 2s infinite;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(244, 67, 54, 0.3);
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(244, 67, 54, 0.7); }
+            70% { box-shadow: 0 0 0 20px rgba(244, 67, 54, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(244, 67, 54, 0); }
+        }
+
+        .navigation {
+            position: fixed;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 20px;
+            z-index: 1000;
+        }
+
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.2);
+            border: none;
+            color: white;
+            padding: 18px 35px;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.2em;
+            font-weight: bold;
+            backdrop-filter: blur(15px);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            transition: all 0.3s ease;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .slide-counter {
+            position: fixed;
+            top: 40px;
+            right: 40px;
+            background: rgba(0, 0, 0, 0.6);
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 1.3em;
+            font-weight: bold;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+        }
+
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+
+        li {
+            position: relative;
+            padding-left: 40px;
+            margin-bottom: 15px;
+        }
+
+        li::before {
+            content: "✨";
+            position: absolute;
+            left: 0;
+            top: 0;
+            font-size: 1.2em;
+        }
+
+        ol li::before {
+            content: none;
+        }
+
+        ol {
+            list-style: decimal;
+            padding-left: 40px;
+        }
+
+        .formula-box {
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            padding: 30px;
+            border-radius: 20px;
+            margin: 30px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 1.8em;
+            text-align: center;
+            border: 3px solid #FFD700;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .scholarship-card {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 15px;
+            border-left: 6px solid #4CAF50;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .deadline-warning {
+            color: #ff4444;
+            font-weight: bold;
+            font-size: 1.4em;
+            text-align: center;
+            animation: blink 1.5s infinite;
+        }
+
+        @keyframes blink {
+            0%, 50% { opacity: 1; }
+            51%, 100% { opacity: 0.5; }
+        }
+
+        .intro-slide {
+            text-align: center;
+        }
+
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 50px 0;
+            gap: 30px;
+        }
+
+        .stat-item {
+            text-align: center;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 30px;
+            border-radius: 20px;
+            min-width: 200px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .stat-number {
+            font-size: 4em;
+            font-weight: bold;
+            color: #FFD700;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        .timeline-item {
+            background: rgba(255, 255, 255, 0.15);
+            padding: 25px;
+            margin: 20px 0;
+            border-radius: 15px;
+            border-left: 6px solid #2196F3;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .two-column {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin: 30px 0;
+        }
+
+        .profile-avatar {
+            width: 200px;
+            height: 200px;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            border-radius: 50%;
+            margin: 30px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 6em;
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.3);
+        }
+
+        .comparison-table {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .before-after {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+        }
+
+        .before-after.before {
+            border-left: 6px solid #f44336;
+        }
+
+        .before-after.after {
+            border-left: 6px solid #4CAF50;
+        }
+
+        .step-number {
+            display: inline-block;
+            background: linear-gradient(45deg, #4CAF50, #45a049);
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            text-align: center;
+            line-height: 60px;
+            font-size: 1.8em;
+            font-weight: bold;
+            margin-right: 20px;
+            vertical-align: middle;
+        }
+
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 25px;
+            margin: 30px 0;
+        }
+
+        .example-card {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 25px;
+            border-radius: 15px;
+            border-top: 4px solid #FFD700;
+            backdrop-filter: blur(10px);
+        }
+
+        .highlight-text {
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            font-weight: bold;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 4px;
+            position: fixed;
+            top: 0;
+            left: 0;
+            z-index: 1000;
+        }
+
+        .progress-fill {
+            height: 100%;
+            background: linear-gradient(45deg, #FFD700, #FFA500);
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+
+        .checklist-item {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            font-size: 1.4em;
+        }
+
+        .checklist-item::before {
+            content: "☐";
+            margin-right: 15px;
+            font-size: 1.5em;
+            color: #FFD700;
+        }
+
+        .urgency-banner {
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
+            color: white;
+            padding: 20px;
+            text-align: center;
+            font-size: 1.5em;
+            font-weight: bold;
+            margin: 30px 0;
+            border-radius: 15px;
+            animation: urgentPulse 1.5s infinite;
+        }
+
+        @keyframes urgentPulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+        }
+    </style>
+</head>
+<body>
+    <div class="progress-bar">
+        <div class="progress-fill" id="progress-fill"></div>
+    </div>
+
+    <div class="slide-counter">
+        <span id="current-slide">1</span> / <span id="total-slides">25</span>
+    </div>
+
+    <div class="presentation-container">
+        <!-- Slide 1: Título Principal -->
+        <div class="slide active intro-slide">
+            <div class="slide-content">
+                <h1>🚨 Los 5 Errores Fatales<br>que Arruinan tu Beca</h1>
+                <div class="big-text">(Y Cómo Evitarlos Antes de Postular)</div>
+                <div class="profile-avatar">🎓</div>
+                <h3>Ariana Renatta</h3>
+                <p style="text-align: center; font-size: 1.4em; margin-top: 20px;">Mentora de Becas • 360+ estudiantes becados</p>
+                <div class="urgency-banner">
+                    CLASE EXTRA DE EMERGENCIA<br>Grabada con fiebre pero con todo el amor ❤️
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 2: Estado Personal -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>🤒 La Verdad Sin Filtros</h2>
+                <div class="case-study">
+                    <h3>¿Por qué estoy grabando enferma?</h3>
+                    <ul>
+                        <li>Regresé de viaje la semana pasada</li>
+                        <li>El cambio de clima en Lima me chocó</li>
+                        <li>Estoy con fiebre y dolor de cabeza</li>
+                        <li>Pero NO puedo dejar que pierdan tiempo</li>
+                    </ul>
+                </div>
+                <div class="big-text">
+                    "Sus sueños no pueden esperar<br>a que yo me mejore"
+                </div>
+                <div class="solution-box">
+                    <p><strong>Las becas no esperan. Tu futuro tampoco.</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 3: Mi Experiencia -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>📈 Mi Trayectoria</h2>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-number">360+</div>
+                        <p>Estudiantes Becados</p>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">6</div>
+                        <p>Años de Experiencia</p>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">$50K+</div>
+                        <p>Becas Perdidas por Errores</p>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-number">85%</div>
+                        <p>Tasa de Éxito</p>
+                    </div>
+                </div>
+                <div class="case-study">
+                    <h3>Lo que me llevó a crear esta clase:</h3>
+                    <p>He visto los mismos errores una y otra vez. Estudiantes brillantes perdiendo becas de $50,000+ por errores evitables.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4: Qué Aprenderás -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>🎯 ¿Qué Aprenderás Hoy?</h2>
+                <div class="solution-box">
+                    <h3>Esta NO es teoría. Son errores REALES:</h3>
+                    <ul>
+                        <li>Errores que cuestan becas de $50,000+ USD</li>
+                        <li>Casos de estudiantes brillantes que fallaron</li>
+                        <li>Soluciones prácticas que SÍ funcionan</li>
+                        <li>5 becas cerrando en los próximos 10 días</li>
+                        <li>Estrategias para agosto/septiembre 2025</li>
+                    </ul>
+                </div>
+                <div class="urgent-box">
+                    <p><strong>BONUS ESPECIAL:</strong> Lista actualizada de becas con deadlines inmediatos</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5: Overview de los 5 Errores -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>🗺️ Los 5 Errores Fatales</h2>
+                <div class="examples-grid">
+                    <div class="example-card">
+                        <h4>🎭 Error #1: Perfil Genérico</h4>
+                        <p>Usar el mismo CV para todas las becas</p>
+                    </div>
+                    <div class="example-card">
+                        <h4>😔 Error #2: "No Soy Suficiente"</h4>
+                        <p>Creer que necesitas ser perfecto</p>
+                    </div>
+                    <div class="example-card">
+                        <h4>💤 Error #3: Carta Aburrida</h4>
+                        <p>Contar tu vida como CV expandido</p>
+                    </div>
+                    <div class="example-card">
+                        <h4>⏰ Error #4: Timing Suicida</h4>
+                        <p>Postular el último día</p>
+                    </div>
+                    <div class="example-card">
+                        <h4>🎰 Error #5: Sin Plan B</h4>
+                        <p>Apostar todo a una sola beca</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 6: Error Fatal #1 - Introducción -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2><span class="error-number">1</span>ERROR FATAL #1</h2>
+                <h1>La Trampa del "Perfil Genérico"</h1>
+                <div class="comparison-table">
+                    <div class="before-after before">
+                        <h4>❌ El Error:</h4>
+                        <p>Usar el mismo perfil para todas las becas</p>
+                        <p><em>"Mi CV sirve para todo"</em></p>
+                    </div>
+                    <div class="before-after after">
+                        <h4>✅ La Realidad:</h4>
+                        <p>Cada beca busca un perfil específico</p>
+                        <p><em>"Adapta tu historia al ADN de cada beca"</em></p>
+                    </div>
+                </div>
+                <div class="big-text">
+                    "No eres un candidato genérico.<br>No tengas un perfil genérico."
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7: Error #1 - Caso Real María -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>📚 Caso Real: María</h2>
+                <div class="case-study">
+                    <h3>Su perfil increíble:</h3>
+                    <div class="two-column">
+                        <div>
+                            <ul>
+                                <li>Presidenta estudiantil</li>
+                                <li>Investigadora en sostenibilidad</li>
+                                <li>Voluntaria en ONG ambiental</li>
+                                <li>Promedio 9.2/10</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <ul>
+                                <li>TOEFL 105/120</li>
+                                <li>3 proyectos de impacto</li>
+                                <li>Experiencia internacional</li>
+                                <li>Cartas de recomendación excelentes</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="urgent-box">
+                    <h3>Lo que hizo mal:</h3>
+                    <p>Aplicó a 8 becas diferentes con el MISMO CV y carta genérica</p>
+                    <div class="deadline-warning">RESULTADO: 0 becas conseguidas</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8: Error #1 - Becas de María -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>🎯 Las Becas de María</h2>
+                <div class="scholarship-card">
+                    <h4>Boston University Trustee Scholarship (USA)</h4>
+                    <p><strong>Busca:</strong> Líderes transformadores con impacto cuantificable</p>
+                    <p><strong>Palabras clave:</strong> Transformación, liderazgo, innovación social</p>
+                </div>
+                <div class="scholarship-card">
+                    <h4>Lester B. Pearson - Universidad de Toronto (Canadá)</h4>
+                    <p><strong>Busca:</strong> Estudiantes con impacto comunitario significativo</p>
+                    <p><strong>Palabras clave:</strong> Comunidad, servicio, liderazgo local</p>
+                </div>
+                <div class="scholarship-card">
+                    <h4>Heinrich Böll Foundation (Alemania)</h4>
+                    <p><strong>Busca:</strong> Activistas comprometidos con justicia climática</p>
+                    <p><strong>Palabras clave:</strong> Activismo, sostenibilidad, justicia social</p>
+                </div>
+                <div class="case-study">
+                    <p><strong>María usó la misma historia genérica para las 3.</strong> Ninguna beca vio lo que realmente buscaba.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9: Error #1 - Solución María -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>💡 La Solución: Perfil Adaptado</h2>
+                <div class="examples-grid">
+                    <div class="example-card">
+                        <h4>🏆 Para Boston University:</h4>
+                        <p><strong>Enfoque:</strong> "Cómo mi proyecto de reciclaje transformó 15 escuelas rurales"</p>
+                        <p><strong>Documentos:</strong> CV enfocado en impacto cuantificado + carta sobre transformación social</p>
+                    </div>
+                    <div class="example-card">
+                        <h4>🍁 Para Universidad de Toronto:</h4>
+                        <p><strong>Enfoque:</strong> "De presidenta estudiantil a líder comunitaria: mi compromiso local"</p>
+                        <p><strong>Documentos:</strong> CV de liderazgo + carta sobre servicio comunitario</p>
+                    </div>
+                    <div class="example-card">
+                        <h4>🌍 Para Heinrich Böll:</h4>
+                        <p><strong>Enfoque:</strong> "Activismo verde: mi lucha por la justicia climática"</p>
+                        <p><strong>Documentos:</strong> CV activista + carta sobre sostenibilidad</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 10: Error #1 - Proceso de 3 Minutos -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>⚡ Proceso Express: 3 Pasos en 3 Minutos</h2>
+                <div class="timeline-item">
+                    <h4><span class="step-number">1</span>Identifica el ADN de la beca</h4>
+                    <p>Lee la descripción, misión y valores. ¿Qué tipo de persona buscan?</p>
+                </div>
+                <div class="timeline-item">
+                    <h4><span class="step-number">2</span>Adapta tu historia principal</h4>
+                    <p>De todos tus logros, ¿cuáles se alinean con lo que buscan?</p>
+                </div>
+                <div class="timeline-item">
+                    <h4><span class="step-number">3</span>Usa sus palabras clave exactas</h4>
+                    <p>Si buscan "liderazgo transformacional", usa exactamente esas palabras.</p>
+                </div>
+                <div class="solution-box">
+                    <p><strong>Resultado:</strong> Tu perfil suena como exactamente lo que están buscando.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 11: Error Fatal #2 - Introducción -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2><span class="error-number">2</span>ERROR FATAL #2</h2>
+                <h1>El Síndrome del "No Soy Suficiente"</h1>
+                <div class="comparison-table">
+                    <div class="before-after before">
+                        <h4>❌ El Error:</h4>
+                        <p>Creer que necesitas ser perfecto para postular</p>
+                        <p><em>"No tengo TOEFL perfecto"</em></p>
+                        <p><em>"Mi universidad no es top"</em></p>
+                    </div>
+                    <div class="before-after after">
+                        <h4>✅ La Realidad:</h4>
+                        <p>Las becas buscan POTENCIAL, no perfección</p>
+                        <p><em>"Muestran crecimiento y hambre de aprender"</em></p>
+                    </div>
+                </div>
+                <div class="big-text">
+                    "No necesitas ser perfecto.<br>Necesitas ser auténtico y mostrar potencial."
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 12: Error #2 - Caso Real Carlos -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>📚 Caso Real: Carlos</h2>
+                <div class="case-study">
+                    <h3>Su situación "imperfecta":</h3>
+                    <div class="two-column">
+                        <div>
+                            <h4>❌ Lo que NO tenía:</h4>
+                            <ul>
+                                <li>TOEFL (alemán no lo exigía)</li>
+                                <li>Promedio perfecto (7.8/10)</li>
+                                <li>Universidad prestigiosa</li>
+                                <li>Experiencia internacional</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>✅ Lo que SÍ tenía:</h4>
+                            <ul>
+                                <li>Pasión por agricultura sostenible</li>
+                                <li>Proyecto local innovador</li>
+                                <li>Historia de superación</li>
+                                <li>Visión clara de futuro</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <p><strong>RESULTADO: Beca completa DAAD Alemania</strong><br>
+                    €1,200 mensuales + matrícula + seguro médico</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 13: Error #2 - Fórmula de Carlos -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>🧬 La Fórmula de Carlos</h2>
+                <div class="formula-box">
+                    Tu historia = Contexto + Desafío + Acción + Resultado + Aprendizaje
+                </div>
+                <div class="case-study">
+                    <h3>Cómo Carlos aplicó la fórmula:</h3>
+                    <div class="timeline-item">
+                        <strong>Contexto:</strong> "Crecí en una comunidad rural donde la agricultura tradicional está en crisis"
+                    </div>
+                    <div class="timeline-item">
+                        <strong>Desafío:</strong> "Vi cómo las familias perdían sus cosechas por falta de técnicas sostenibles"
+                    </div>
+                    <div class="timeline-item">
+                        <strong>Acción:</strong> "Desarrollé un sistema de riego inteligente con recursos locales"
+                    </div>
+                    <div class="timeline-item">
+                        <strong>Resultado:</strong> "Incrementé la productividad en 40% en 20 familias"
+                    </div>
+                    <div class="timeline-item">
+                        <strong>Aprendizaje:</strong> "Entendí que la innovación real viene de conocer profundamente el problema"
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 14: Error #2 - Reframe de Desventajas -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>🔄 Reframe: Convierte "Desventajas" en Fortalezas</h2>
+                <div class="comparison-table">
+                    <div class="before-after before">
+                        <h4>❌ Mentalidad Limitante:</h4>
+                        <ul>
+                            <li>"No tengo experiencia internacional"</li>
+                            <li>"Mi universidad no es famosa"</li>
+                            <li>"Mi inglés no es perfecto"</li>
+                            <li>"Vengo de familia humilde"</li>
+                        </ul>
+                    </div>
+                    <div class="before-after after">
+                        <h4>✅ Mentalidad de Crecimiento:</h4>
+                        <ul>
+                            <li>"Mi perspectiva local me da soluciones únicas"</li>
+                            <li>"He aprendido a maximizar recursos limitados"</li>
+                            <li>"Soy multiculturalmente adaptable"</li>
+                            <li>"Entiendo los desafíos reales de mi comunidad"</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="big-text">
+                    "Tus 'limitaciones' son tu diferenciación"
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 15: Error Fatal #3 - Introducción -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2><span class="error-number">3</span>ERROR FATAL #3</h2>
+                <h1>La Carta de Motivación que Aburre</h1>
+                <div class="comparison-table">
+                    <div class="before-after before">
+                        <h4>❌ El Error:</h4>
+                        <p>Contar tu vida como un CV expandido</p>
+                        <p><em>"Desde pequeño soñaba con..."</em></p>
+                        <p><em>"He obtenido los siguientes logros..."</em></p>
+                    </div>
+                    <div class="before-after after">
+                        <h4>✅ La Realidad:</h4>
+                        <p>Tienes 30 segundos para enganchar</p>
+                        <p><em>"Necesitas un hook poderoso"</em></p>
+                        <p><em>"Cuenta una historia, no una lista"</em></p>
+                    </div>
+                </div>
+                <div class="urgent-box">
+                    <p>Los evaluadores leen <strong>cientos de cartas</strong>. ¿La tuya los hará detenerse?</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 16: Error #3 - Caso Real Laura -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>📚 Caso Real: Laura</h2>
+                <div class="case-study">
+                    <h3>Su primer intento (FALLIDO):</h3>
+                    <div class="before-after before">
+                        <h4>❌ Carta original de 3 páginas:</h4>
+                        <p><em>"Mi nombre es Laura y desde niña he soñado con estudiar en el extranjero. Durante mi carrera he obtenido los siguientes logros: fui presidenta de..."</em></p>
+                        <p><strong>Sonaba como:</strong> CV expandido, aburrido, genérico</p>
+                        <p><strong>Para:</strong> Lester B. Pearson Toronto (cobertura completa)</p>
+                        <div class="deadline-warning">RESULTADO: Rechazada en primera ronda</div>
+                    </div>
+                </div>
+                <div class="solution-box">
+                    <h3>Su segundo intento (EXITOSO):</h3>
+                    <p>Cambió a mi <strong>Fórmula IMPACT</strong> para University of Michigan</p>
+                    <p><strong>RESULTADO: 4 becas aprobadas</strong>, incluyendo Utah State University Master's Scholarship (beca completa + estipendio + seguro médico)</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 17: Error #3 - Fórmula IMPACT -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>🚀 Fórmula IMPACT</h2>
+                <div class="solution-box">
+                    <h3>La fórmula que cambió todo para Laura:</h3>
+                    <div class="timeline-item">
+                        <strong>I - Inicio poderoso:</strong> Hook en máximo 15 palabras que enganche inmediatamente
+                    </div>
+                    <div class="timeline-item">
+                        <strong>M - Momento que cambió todo:</strong> El punto de inflexión en tu historia
+                    </div>
+                    <div class="timeline-item">
+                        <strong>P - Pasión que descubriste:</strong> Lo que realmente te mueve
+                    </div>
+                    <div class="timeline-item">
+                        <strong>A - Acciones concretas:</strong> Lo que HICISTE específicamente
+                    </div>
+                    <div class="timeline-item">
+                        <strong>C - Conexión con la beca:</strong> Por qué esta beca específicamente
+                    </div>
+                    <div class="timeline-item">
+                        <strong>T - Transformación futura:</strong> El impacto que planeas crear
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 18: Error #3 - Ejemplos de Inicios Poderosos -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>💥 Ejemplos de Inicios que Funcionan</h2>
+                <div class="examples-grid">
+                    <div class="example-card">
+                        <h4>🌊 Para Ingeniería:</h4>
+                        <p><em>"El día que mi pueblo se quedó sin agua, decidí que sería ingeniera."</em></p>
+                        <p><strong>Por qué funciona:</strong> Urgencia + propósito + decisión</p>
+                    </div>
+                    <div class="example-card">
+                        <h4>💼 Para Emprendimiento:</h4>
+                        <p><em>"Tengo 23 años y ya he fracasado en 3 emprendimientos. Aquí está lo que aprendí."</em></p>
+                        <p><strong>Por qué funciona:</strong> Honestidad + experiencia + crecimiento</p>
+                    </div>
+                    <div class="example-card">
+                        <h4>👑 Para Liderazgo:</h4>
+                        <p><em>"Mi abuela me enseñó más sobre liderazgo que cualquier libro de Harvard."</em></p>
+                        <p><strong>Por qué funciona:</strong> Contraste + sabiduría + humildad</p>
+                    </div>
+                </div>
+                <div class="urgent-box">
+                    <p><strong>Ejercicio:</strong> ¿Cuál sería tu inicio poderoso en 15 palabras?</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 19: Error Fatal #4 - Introducción -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2><span class="error-number">4</span>ERROR FATAL #4</h2>
+                <h1>El Timing Suicida</h1>
+                <div class="comparison-table">
+                    <div class="before-after before">
+                        <h4>❌ El Error:</h4>
+                        <p>Postular en los últimos días del deadline</p>
+                        <p><em>"Tengo tiempo, el deadline es mañana"</em></p>
+                    </div>
+                    <div class="before-after after">
+                        <h4>✅ La Realidad:</h4>
+                        <p>Los evaluadores están cansados y menos tolerantes</p>
+                        <p><em>"Los primeros en llegar tienen ventaja"</em></p>
+                    </div>
+                </div>
+                <div class="urgent-box">
+                    <p><strong>PELIGRO:</strong> Un error técnico el último día puede costarte la beca completa</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 20: Error #4 - Caso Real Ana -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>📚 Caso Real: Ana</h2>
+                <div class="case-study">
+                    <h3>Su situación perfecta (excepto el timing):</h3>
+                    <div class="two-column">
+                        <div>
+                            <h4>✅ Lo que tenía perfecto:</h4>
+                            <ul>
+                                <li>CV impecable</li>
+                                <li>Carta de motivación excelente</li>
+                                <li>Cartas de recomendación A+</li>
+                                <li>IELTS 8.5/9</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>❌ Lo que hizo mal:</h4>
+                            <ul>
+                                <li>Decidió aplicar el último día</li>
+                                <li>15 de enero (deadline Monash)</li>
+                                <li>Error técnico en el sistema</li>
+                                <li>No pudo completar aplicación</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="urgent-box">
+                    <h3>Beca perdida: Monash International Leadership</h3>
+                    <p><strong>Valor:</strong> Beca académica 100% en Australia</p>
+                    <div class="deadline-warning">RESULTADO: Perdió la oportunidad por 1 día</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 21: Error #4 - Mi Regla de Oro -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>⏰ Mi Regla de Oro del Timing</h2>
+                <div class="timeline-item">
+                    <h4>📅 30 días antes del deadline:</h4>
+                    <p><strong>Documentos al 80%</strong> - Primera versión sólida de todos los documentos</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>📅 15 días antes del deadline:</h4>
+                    <p><strong>Documentos finales + revisión</strong> - Versión casi final, revisada por mentores</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>📅 7 días antes del deadline:</h4>
+                    <p><strong>¡POSTULACIÓN ENVIADA!</strong> - Todo subido y confirmado</p>
+                </div>
+                <div class="timeline-item">
+                    <h4>📅 Días restantes:</h4>
+                    <p><strong>Solo para emergencias</strong> - Respaldo y seguimiento</p>
+                </div>
+                <div class="big-text">
+                    "El último día es para celebrar,<br>no para aplicar"
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 22: Error #4 - Checklist 48 Horas -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>📋 Checklist: 48 Horas Antes del Envío</h2>
+                <div class="solution-box">
+                    <h3>Mi checklist de emergencia:</h3>
+                    <div class="checklist-item">Todos los documentos en PDF optimizado</div>
+                    <div class="checklist-item">Nombres de archivos correctos según instrucciones</div>
+                    <div class="checklist-item">Revisión ortográfica y gramatical completa</div>
+                    <div class="checklist-item">Verificación de todos los requisitos específicos</div>
+                    <div class="checklist-item">Backup de todos los archivos en 3 lugares</div>
+                    <div class="checklist-item">Confirmación de que el portal funciona correctamente</div>
+                    <div class="checklist-item">Plan B para problemas técnicos</div>
+                    <div class="checklist-item">Contacto de emergencia de la universidad</div>
+                </div>
+                <div class="urgent-box">
+                    <p><strong>REGLA DE ORO:</strong> Si no puedes marcar todos los ítems, NO estás listo para enviar</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 23: Error Fatal #5 - Introducción -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2><span class="error-number">5</span>ERROR FATAL #5</h2>
+                <h1>No Tener Plan B (ni C, ni D)</h1>
+                <div class="comparison-table">
+                    <div class="before-after before">
+                        <h4>❌ El Error:</h4>
+                        <p>Apostar todo a una sola beca</p>
+                        <p><em>"Esta es MI beca perfecta"</em></p>
+                        <p><em>"No necesito otras opciones"</em></p>
+                    </div>
+                    <div class="before-after after">
+                        <h4>✅ La Realidad:</h4>
+                        <p>Incluso con perfil perfecto, las becas son competitivas</p>
+                        <p><em>"Diversifica tu portafolio de becas"</em></p>
+                    </div>
+                </div>
+                <div class="big-text">
+                    "No pongas todos los huevos<br>en la misma canasta de becas"
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 24: Error #5 - Caso Real Diego -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>📚 Caso Real: Diego</h2>
+                <div class="case-study">
+                    <h3>Su perfil ideal para Stanford:</h3>
+                    <div class="two-column">
+                        <div>
+                            <h4>✅ Lo que tenía perfecto:</h4>
+                            <ul>
+                                <li>Promedio 9.8/10</li>
+                                <li>GMAT 750/800</li>
+                                <li>Experiencia de liderazgo excepcional</li>
+                                <li>Investigación publicada</li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h4>❌ Su error fatal:</h4>
+                            <ul>
+                                <li>Solo aplicó a Knight-Hennessy Stanford</li>
+                                <li>"Es perfecta para mí"</li>
+                                <li>No tuvo plan B</li>
+                                <li>Deadline: 8 de octubre</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="urgent-box">
+                    <h3>Knight-Hennessy Stanford:</h3>
+                    <p><strong>Valor:</strong> Beca completa para todas las áreas</p>
+                    <p><strong>Competitividad:</strong> 0.1% de aceptación</p>
+                    <div class="deadline-warning">RESULTADO: No la consiguió. Perdió un año completo.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 25: Error #5 - Estrategia ABC -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>🎯 Mi Estrategia ABC (Ejemplos 2025)</h2>
+                <div class="scholarship-card">
+                    <h3>🌟 BECA SUEÑO (20% probabilidad)</h3>
+                    <p><strong>Knight-Hennessy Stanford:</strong> Beca completa para futuros líderes globales</p>
+                    <p><strong>Rhodes Oxford:</strong> La beca más prestigiosa del mundo</p>
+                </div>
+                <div class="scholarship-card">
+                    <h3>💪 BECA REALISTA (60% probabilidad)</h3>
+                    <p><strong>Becas DAAD Alemania:</strong> €1,200 mensuales + matrícula</p>
+                    <p><strong>Heinrich Böll:</strong> Para activistas comprometidos</p>
+                </div>
+                <div class="scholarship-card">
+                    <h3>🛡️ BECA BACKUP (90% probabilidad)</h3>
+                    <p><strong>University of the People (USA):</strong> Educación gratuita online</p>
+                    <p><strong>BPP University (UK):</strong> Múltiples fechas de inicio</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 26: Base de Datos de Becas 2025 -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>📊 Mi Base de Datos Actualizada</h2>
+                <div class="examples-grid">
+                    <div class="example-card">
+                        <h4>🇩🇪 Alemania (6 opciones):</h4>
+                        <ul>
+                            <li>Rosa Luxemburgo - Ciencias sociales</li>
+                            <li>KAAD - Todas las áreas</li>
+                            <li>Heinrich Böll - Sostenibilidad</li>
+                        </ul>
+                    </div>
+                    <div class="example-card">
+                        <h4>🇨🇭 Suiza (2 opciones):</h4>
+                        <ul>
+                            <li>ETH Zurich - €6,000/semestre</li>
+                            <li>Universidad de Lausana</li>
+                        </ul>
+                    </div>
+                    <div class="example-card">
+                        <h4>🇸🇬 Singapur (3 opciones):</h4>
+                        <ul>
+                            <li>NUS - Ciencias/ingeniería</li>
+                            <li>NTU - Investigación</li>
+                            <li>SINGA - Tecnología</li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="big-text">
+                    "10 becas compatibles en 2 horas de investigación"
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 27: ¡URGENTE! Becas Julio 2025 -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>🚨 ¡URGENTE! Becas Cerrando en 10 Días</h2>
+                <div class="urgency-banner">
+                    5 BECAS CON DEADLINE INMEDIATO - JULIO 2025
+                </div>
+                <div class="scholarship-card">
+                    <h4>🇨🇷 Costa Rica - OEA-UCI Administración de Proyectos</h4>
+                    <p><strong>Deadline:</strong> <span class="deadline-warning">11 julio 2025 (¡2 días!)</span></p>
+                    <p><strong>Valor:</strong> Descuentos 30%, 50% y 90% sobre colegiatura</p>
+                </div>
+                <div class="scholarship-card">
+                    <h4>🇬🇧 Inglaterra - BPP University Vice Chancellor's</h4>
+                    <p><strong>Deadline:</strong> <span class="deadline-warning">11 julio 2025 (¡2 días!)</span></p>
+                    <p><strong>Valor:</strong> Beca académica 100%</p>
+                </div>
+                <div class="scholarship-card">
+                    <h4>🇧🇷 Brasil - GCUB-MOB Movilidad Internacional</h4>
+                    <p><strong>Deadline:</strong> <span class="deadline-warning">13 julio 2025 (¡4 días!)</span></p>
+                    <p><strong>Valor:</strong> Beca académica + estipendio mensual</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 28: Becas Hot Agosto-Septiembre -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>🔥 Becas HOT para Agosto-Septiembre 2025</h2>
+                <div class="scholarship-card">
+                    <h4>🏆 Oxford Rhodes Scholarships (31 julio)</h4>
+                    <p><strong>Valor:</strong> Beca completa - La más prestigiosa del mundo</p>
+                </div>
+                <div class="scholarship-card">
+                    <h4>🔬 DAAD STEM Alemania (3 septiembre)</h4>
+                    <p><strong>Valor:</strong> €1,200 mensuales + matrícula para ciencia y tecnología</p>
+                </div>
+                <div class="scholarship-card">
+                    <h4>👩 Margaret McNamara Latinoamérica (30 septiembre)</h4>
+                    <p><strong>Valor:</strong> US$7,000 para mujeres latinoamericanas</p>
+                </div>
+                <div class="scholarship-card">
+                    <h4>🇺🇸 AAUW International Fellowships (30 septiembre)</h4>
+                    <p><strong>Valor:</strong> $20K maestría / $25K doctorado en USA</p>
+                </div>
+                <div class="scholarship-card">
+                    <h4>🇨🇳 Schwarzman Scholars (Septiembre - fecha por confirmar)</h4>
+                    <p><strong>Valor:</strong> Beca completa para futuros líderes globales</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 29: Detector de Señales de Alerta -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>🔍 Detector de Señales de Alerta</h2>
+                <div class="case-study">
+                    <h3>Las 7 señales que predicen rechazo:</h3>
+                    <div class="checklist-item">Tu motivación suena genérica (sirve para cualquier beca)</div>
+                    <div class="checklist-item">No conectas tu pasado con tu futuro</div>
+                    <div class="checklist-item">Hablas más de ti que del programa</div>
+                    <div class="checklist-item">Tus recomendadores no te conocen realmente</div>
+                    <div class="checklist-item">Tu timeline es irreal</div>
+                    <div class="checklist-item">No muestras conocimiento específico del país/universidad</div>
+                    <div class="checklist-item">Tu inglés tiene errores básicos</div>
+                </div>
+                <div class="solution-box">
+                    <p><strong>Autoevaluación:</strong> Si marcas 3+ señales, necesitas revisar tu estrategia</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 30: Tu Misión Ahora -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>🚀 Tu Misión Esta Semana</h2>
+                <div class="solution-box">
+                    <h3>📋 Acciones inmediatas:</h3>
+                    <div class="timeline-item">
+                        <strong>HOY (9 julio):</strong> Revisa las 5 becas con deadline inmediato
+                    </div>
+                    <div class="timeline-item">
+                        <strong>MAÑANA (10 julio):</strong> Escoge 1 beca realista y empieza documentos
+                    </div>
+                    <div class="timeline-item">
+                        <strong>11-13 julio:</strong> Aplica a AL MENOS 1 beca de julio
+                    </div>
+                    <div class="timeline-item">
+                        <strong>14-16 julio:</strong> Investiga 3 becas para agosto/septiembre
+                    </div>
+                </div>
+                <div class="urgent-box">
+                    <p><strong>META SEMANAL:</strong> 1 aplicación enviada + 3 becas investigadas</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 31: Workshop Completo -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>🗓️ Workshop Completo "Becario Express: 3 en 90"</h2>
+                <div class="case-study">
+                    <h3>Nuevas fechas confirmadas:</h3>
+                    <div class="timeline-item">
+                        <strong>Clase 1 - 30 de julio:</strong> La Ruta Express a 3 Becas Internacionales
+                    </div>
+                    <div class="timeline-item">
+                        <strong>Clase 2 - 1 de agosto:</strong> Documentos que Venden: CV, Carta y Recomendaciones
+                    </div>
+                    <div class="timeline-item">
+                        <strong>Clase 3 - 3 de agosto:</strong> Postulación Inteligente: Cómo Aplicar a 3 Becas en Paralelo
+                    </div>
+                    <p><strong>🕕 Hora:</strong> 6:00 PM (Ecuador/Perú/Colombia)</p>
+                </div>
+                <div class="solution-box">
+                    <p><strong>Si implementas lo de esta clase, llegarás al workshop con ventaja</strong></p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 32: Mensaje Personal Final -->
+        <div class="slide">
+            <div class="slide-content">
+                <h2>💌 Mensaje Personal</h2>
+                <div class="case-study">
+                    <h3>6 años ayudando estudiantes me han enseñado:</h3>
+                    <div class="big-text">
+                        "La diferencia no está en lo que tienes,<br>sino en cómo lo cuentas"
+                    </div>
+                    <ul>
+                        <li>He visto estudiantes con promedios "normales" conseguir becas increíbles</li>
+                        <li>He visto estudiantes "perfectos" ser rechazados</li>
+                        <li>La clave está en la estrategia, no en la perfección</li>
+                    </ul>
+                </div>
+                <div class="solution-box">
+                    <p><strong>Esta clase te da ventaja antes de que empiece la verdadera batalla. Úsala bien.</strong></p>
+                </div>
+                <p style="text-align: center; font-size: 1.4em; margin-top: 40px;">
+                    Con cariño y desde mi cama de enferma<br>(pero con la misma pasión de siempre),<br><br>
+                    <strong>Ariana Renatta ✨</strong><br>
+                    <em>Mentora de Becas - 360+ estudiantes becados</em>
+                </p>
+            </div>
+        </div>
+
+        <!-- Slide 33: Call to Action Final -->
+        <div class="slide">
+            <div class="slide-content">
+                <h1>🎯 ¡A Conseguir Esas Becas!</h1>
+                <div class="urgency-banner">
+                    ¡HAY 5 BECAS CERRANDO EN LOS PRÓXIMOS 10 DÍAS!
+                </div>
+                <div class="big-text">
+                    "Las becas no esperan.<br>Tu futuro tampoco."
+                </div>
+                <div class="solution-box">
+                    <h3>📋 Tu siguiente paso:</h3>
+                    <p>1. Completa el cuaderno de trabajo</p>
+                    <p>2. Aplica a AL MENOS 1 beca esta semana</p>
+                    <p>3. Comparte esta clase con alguien que persiga becas</p>
+                </div>
+                <div class="case-study">
+                    <p><strong>P.D.:</strong> Si consigues una beca usando estos materiales antes del 30 de julio, juro que mi resfriado se curará de la emoción 😂</p>
+                    <p><strong>P.D.D.:</strong> Nos vemos el 30 de julio para el workshop completo. ¡Llegarás con ventaja si actúas YA! 🌟</p>
+                </div>
+                <div style="text-align: center; margin-top: 50px;">
+                    <div style="font-size: 8em;">🎓</div>
+                    <p style="font-size: 2em; margin-top: 20px;">¡Tu beca te está esperando!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <button class="nav-btn" onclick="previousSlide()">⬅ Anterior</button>
+        <button class="nav-btn" onclick="nextSlide()">Siguiente ➡</button>
+        <button class="nav-btn" onclick="goToSlide(0)" style="background: rgba(255, 215, 0, 0.3);">🏠 Inicio</button>
+    </div>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        const progressFill = document.getElementById('progress-fill');
+
+        document.getElementById('total-slides').textContent = totalSlides;
+
+        function updateProgress() {
+            const progress = ((currentSlide + 1) / totalSlides) * 100;
+            progressFill.style.width = progress + '%';
+        }
+
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            document.getElementById('current-slide').textContent = currentSlide + 1;
+            updateProgress();
+        }
+
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+
+        function previousSlide() {
+            showSlide(currentSlide - 1);
+        }
+
+        function goToSlide(n) {
+            showSlide(n);
+        }
+
+        // Navegación con teclado
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'ArrowRight' || event.key === ' ') {
+                event.preventDefault();
+                nextSlide();
+            } else if (event.key === 'ArrowLeft') {
+                event.preventDefault();
+                previousSlide();
+            } else if (event.key === 'Home') {
+                event.preventDefault();
+                goToSlide(0);
+            } else if (event.key === 'End') {
+                event.preventDefault();
+                goToSlide(totalSlides - 1);
+            }
+        });
+
+        // Click en cualquier lugar para avanzar (excepto en botones)
+        document.addEventListener('click', function(event) {
+            if (!event.target.classList.contains('nav-btn')) {
+                nextSlide();
+            }
+        });
+
+        // Inicializar progreso
+        updateProgress();
+
+        // Detectar si está en modo presentación (pantalla completa)
+        function toggleFullscreen() {
+            if (!document.fullscreenElement) {
+                document.documentElement.requestFullscreen();
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        // F11 o doble click para pantalla completa
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'F11') {
+                event.preventDefault();
+                toggleFullscreen();
+            }
+        });
+
+        document.addEventListener('dblclick', function(event) {
+            if (!event.target.classList.contains('nav-btn')) {
+                toggleFullscreen();
+            }
+        });
+
+        // Auto-save del progreso
+        function saveProgress() {
+            localStorage.setItem('becas-presentation-progress', currentSlide);
+        }
+
+        function loadProgress() {
+            const saved = localStorage.getItem('becas-presentation-progress');
+            if (saved) {
+                goToSlide(parseInt(saved));
+            }
+        }
+
+        // Guardar progreso cada vez que cambie slide
+        document.addEventListener('keydown', saveProgress);
+        document.addEventListener('click', saveProgress);
+
+        // Cargar progreso al iniciar
+        window.addEventListener('load', loadProgress);
+
+        // Información adicional para el presenter
+        console.log('🎓 Presentación: Los 5 Errores Fatales que Arruinan tu Beca');
+        console.log('📊 Total de slides:', totalSlides);
+        console.log('⌨️ Controles:');
+        console.log('   → o Espacio: Siguiente slide');
+        console.log('   ← : Slide anterior');
+        console.log('   Home: Ir al inicio');
+        console.log('   End: Ir al final');
+        console.log('   F11 o Doble Click: Pantalla completa');
+        console.log('   Click en cualquier lugar: Siguiente slide');
+        console.log('💾 El progreso se guarda automáticamente');
+    </script>
+</body>
+</html>
